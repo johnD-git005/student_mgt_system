@@ -16,19 +16,17 @@ def add_student():
 		"score": score,
 		"age": age
 		}
-# FUNCTION TO DELETE STUDENT
+# FUNCTION TO GET A STUDENT
 
 def get_student():
 	student_mat = int(input("\n Enter Student ID: "))
-	flag = False
+	key = student_record[student_mat]
 
-	for student_id in student_record:
-		if student_id == student_mat:
-			print(student_record[student_id])
-			flag = True
+	if student_mat in student_record:
+		print(f"\n ID: {student_mat}, Name: {key['name']}, DEPT: {key['dept']}, SCORE: {key['score']}, AGE: {key['age']}")
+
 	else:
-		if flag == False:
-			print("\n Student Not Found!")
+		print("\n Student Does Not Exist!")
 
 # FUNCTION TO DELETE A STUDENT
 
@@ -36,14 +34,11 @@ def delete_student():
 	student_no = int(input("\n Please Enter Student ID: "))
 	flag = False
 
-	for student_id in student_record:
-		if student_id == student_no:
-			del student_record[student_id]
-			print("\n Student with ID: {student_no} Deleted Successfully!")
-			flag = True
+	if student_no in student_record:
+		del student_record[student_no]
+		print(f"\n Student with ID: {student_no} Deleted Successfully!")
 	else:
-		if flag == False:
-			print("\n Student Not Found!")
+		print("\n Student Not FOund!")
 
 # FUNCTION TO DISPLAY ALL STUDENTS
 
@@ -52,6 +47,23 @@ def display_student():
 		print(student_record)
 	else:
 		print("\n No student. Please Add student to the Data Base")
+
+# FUNCTION TO UPDATE A STUDENT
+
+def update_student():
+
+	student_id = int(input("\n Enter student ID: "))
+
+	if student_id in student_record:
+
+		print("""
+		1. UPDATE NAME
+		2. UPDATE AGE
+		3. UPDATE DEPARTMENT
+		""")
+	else:
+		print("\n Student Not Found!")
+
 
 # FUNCTION TO START PROGRAM
 
@@ -74,6 +86,10 @@ def start():
 		elif options == 2:
 			print("\n DELETE A STUDENT BY ID")
 			delete_student()
+
+		elif options == 3:
+			print("\n UPDATE A STUDENT")
+			update_student()
 
 		elif options == 4:
 			print("\n GET A STUDENT BY ID")
