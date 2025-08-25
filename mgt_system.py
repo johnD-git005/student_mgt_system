@@ -20,9 +20,9 @@ def add_student():
 
 def get_student():
 	student_mat = int(input("\n Enter Student ID: "))
-	key = student_record[student_mat]
 
 	if student_mat in student_record:
+		key = student_record[student_mat]
 		print(f"\n ID: {student_mat}, Name: {key['name']}, DEPT: {key['dept']}, SCORE: {key['score']}, AGE: {key['age']}")
 
 	else:
@@ -93,33 +93,42 @@ def update_student():
 	else:
 		print("\n Student Not Found!")
 
-# FUNCTION TO SEARCH STUDENT 
+# FUNCTION TO SEARCH STUDENT BY NAME
 
-def search_student():
+def search_student_by_name():
 
-	print("""
-	1. SEARCH BY NAME
-	2. FILTER BY AGE
-	""")
+	print("\n SEARCH BY NAME")
 
-	option = int(input("\n Enter Option: "))
+	student_name = input("\n Enter Student Name: ")
+	flag = False
 
-	if option == 1:
-		student_name = input("\n Enter Student Name: ")
-		flag = False
+	for student in student_record:
+		key = student_record[student]
 
-		for student in student_record:
-			key = student_record[student]
-
-			if student_name == key["name"]:
-				print(f"\n ID: {student}, Name: {key['name']}, DEPT: {key['dept']}, SCORE: {key['score']}, AGE: {key['age']}")
-				flag = True
-		else:
-			if flag == False:
-				print("\n Student Not Found!")
+		if student_name == key["name"]:
+			print(f"\n ID: {student}, Name: {key['name']}, DEPT: {key['dept']}, SCORE: {key['score']}, AGE: {key['age']}")
+			flag = True
 	else:
-		print("\n Invalid Selecton!")
+		if flag == False:
+			print(f"\n Student {student_name} Not Found!")
 
+# FUNCTION TO FILTER STUDENT BY AGE
+
+def filter_by_age():
+	print("\n FILTER STUDENT BY AGE")
+
+	student_age = int(input("\n Enter Student Age: "))
+	flag = False
+
+	for student in student_record:
+		key = student_record[student]
+				
+		if student_age == key["age"]:
+			print(f"\n ID: {student}, Name: {key['name']}, DEPT: {key['dept']}, SCORE: {key['score']}, AGE: {key['age']}")
+			flag = True
+	else:
+		if flag == False:
+			print(f"\n Student Age:{student_age} Not Found!")
 
 # FUNCTION TO START PROGRAM
 
@@ -131,7 +140,8 @@ def start():
 		3. UPDATE STUDENT
 		4. GET A SINGLE STUDENT
 		5. DISPLAY ALL STUDENTS
-		6. SEARCH STUDENT
+		6. SEARCH STUDENT BY NAME
+		7. FILTER STUDENT BY AGE
 		""")
 
 		options = int(input("\n Please select an Option: "))
@@ -157,7 +167,10 @@ def start():
 			display_student()
 
 		elif options == 6:
-			search_student()
+			search_student_by_name()
+
+		elif options == 7:
+			filter_by_age()
 		else:
 			print("\n Invalid Input!")
 start()
