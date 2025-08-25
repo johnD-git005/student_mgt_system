@@ -130,6 +130,11 @@ def filter_by_age():
 		if flag == False:
 			print(f"\n Student Age:{student_age} Not Found!")
 
+def count_students():
+	
+	total_number_of_students = len(student_record)
+	print(f"\n TOTAL NUMBER OF STUDENTS: {total_number_of_students}")
+
 # FUNCTION TO START PROGRAM
 
 def start():
@@ -142,6 +147,7 @@ def start():
 		5. DISPLAY ALL STUDENTS
 		6. SEARCH STUDENT BY NAME
 		7. FILTER STUDENT BY AGE
+		8. TOTAL NUMBER OF SUDENTS
 		""")
 
 		options = int(input("\n Please select an Option: "))
@@ -171,6 +177,9 @@ def start():
 
 		elif options == 7:
 			filter_by_age()
+
+		elif options == 8:
+			count_students()
 		else:
 			print("\n Invalid Input!")
 start()
