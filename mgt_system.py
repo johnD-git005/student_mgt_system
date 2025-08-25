@@ -123,12 +123,12 @@ def filter_by_age():
 	for student in student_record:
 		key = student_record[student]
 				
-		if student_age == key["age"]:
+		if key["age"] > student_age:
 			print(f"\n ID: {student}, Name: {key['name']}, DEPT: {key['dept']}, SCORE: {key['score']}, AGE: {key['age']}")
 			flag = True
 	else:
 		if flag == False:
-			print(f"\n Student Age:{student_age} Not Found!")
+			print(f"\n Student Greater Than Age:{student_age} Not Found!")
 
 def count_students():
 	
