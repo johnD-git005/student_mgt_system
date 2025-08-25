@@ -37,9 +37,13 @@ Function: filter_by_age()
 Ask the user to enter an age.
 Show only students older than that age.
 
-e.g Enter Your choice: 8
+e.g 
+Enter Your choice: 8
+
 Enter Minimum Age: 21
+
 ID: 2, Name: Alice, Age: 22
+
 ID: 3, Name: Bob, Age: 25
 
 
