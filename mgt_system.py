@@ -93,6 +93,33 @@ def update_student():
 	else:
 		print("\n Student Not Found!")
 
+# FUNCTION TO SEARCH STUDENT 
+
+def search_student():
+
+	print("""
+	1. SEARCH BY NAME
+	2. FILTER BY AGE
+	""")
+
+	option = int(input("\n Enter Option: "))
+
+	if option == 1:
+		student_name = input("\n Enter Student Name: ")
+		flag = False
+
+		for student in student_record:
+			key = student_record[student]
+
+			if student_name == key["name"]:
+				print(f"\n ID: {student}, Name: {key['name']}, DEPT: {key['dept']}, SCORE: {key['score']}, AGE: {key['age']}")
+				flag = True
+		else:
+			if flag == False:
+				print("\n Student Not Found!")
+	else:
+		print("\n Invalid Selecton!")
+
 
 # FUNCTION TO START PROGRAM
 
@@ -104,6 +131,7 @@ def start():
 		3. UPDATE STUDENT
 		4. GET A SINGLE STUDENT
 		5. DISPLAY ALL STUDENTS
+		6. SEARCH STUDENT
 		""")
 
 		options = int(input("\n Please select an Option: "))
@@ -127,6 +155,9 @@ def start():
 		elif options == 5:
 			print("\n DISPLAY ALL STUDENT")
 			display_student()
+
+		elif options == 6:
+			search_student()
 		else:
 			print("\n Invalid Input!")
 start()
