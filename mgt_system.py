@@ -43,10 +43,11 @@ def delete_student():
 # FUNCTION TO DISPLAY ALL STUDENTS
 
 def display_student():
-	if student_record:
-		print(student_record)
-	else:
-		print("\n No student. Please Add student to the Data Base")
+	print(f"\n {student_record}")
+	
+	for students in student_record:
+		key = student_record[students]
+		print(f"\n ID: {students}, Name: {key['name']}, DEPT: {key['dept']}, SCORE: {key['score']}, AGE: {key['age']}")
 
 # FUNCTION TO UPDATE A STUDENT
 
@@ -68,14 +69,27 @@ def update_student():
 
 		if option == 1:
 			print("\n UPDATE NAME")
-			new_name = input("\n Enter Name to Update: ")
+			new_name = input("\n Enter Name: ")
 			student_record[student_id].update({'name':new_name})
-			print("\n Name Update Successfully!")
+			print("\n Name Updated Successfully!")
 			print(f"\n {student_record[student_id]}")
 
+		elif option == 2:
+			print("\n UPDATE AGE")
+			new_age = input("\n Enter Age: ")
+			student_record[student_id].update({'age':new_age})
+			print("\n Age Updated successfully!")
+			print(f"\n {student_record[student_id]}")
+
+		elif option == 3:
+			print("\n UPDATE DEPARTMENT")
+			new_dept = input("\n Enter Department: ")
+			student_record[student_id].update({'dept':new_dept})
+			print("\n Department Updated successfully!")
+			print(f"\n {student_record[student_id]}")
 
 		else:
-			prnt("\n Invalid Selecetion!")
+			prnt("\n Invalid Selection!")
 	else:
 		print("\n Student Not Found!")
 
@@ -118,6 +132,3 @@ def start():
 start()
 
 
-
-
-	
