@@ -56,11 +56,26 @@ def update_student():
 
 	if student_id in student_record:
 
+		print(f"\n {student_record[student_id]}")
+
 		print("""
 		1. UPDATE NAME
 		2. UPDATE AGE
 		3. UPDATE DEPARTMENT
 		""")
+
+		option = int(input("\n Select an Option: "))
+
+		if option == 1:
+			print("\n UPDATE NAME")
+			new_name = input("\n Enter Name to Update: ")
+			student_record[student_id].update({'name':new_name})
+			print("\n Name Update Successfully!")
+			print(f"\n {student_record[student_id]}")
+
+
+		else:
+			prnt("\n Invalid Selecetion!")
 	else:
 		print("\n Student Not Found!")
 
